@@ -5,6 +5,7 @@ import ch.qos.logback.classic.encoder.PatternLayoutEncoder;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
 import io.verticle.oss.fireboard.client.*;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
@@ -79,7 +80,7 @@ public class FireboardAppender extends AppenderBase {
 
                 sectionList.addAll(new MessagePropertyHelper()
                         .section("Exception")
-                        .property("stacktrace", stackBuffer.toString())
+                        .property("stacktrace", StringEscapeUtils.escapeJson(stackBuffer.toString()))
                         .build());
 
                 String message = event.getMessage() != null ? event.getMessage() : "";
@@ -92,7 +93,7 @@ public class FireboardAppender extends AppenderBase {
                                     .category(category)
                                     .severity(severity)
                                     .ident(ident)
-                                    .message(message)
+                                    .message(StringEscapeUtils.escapeJson(message))
                                     .status(status)
                                     .link(new URL("https://fireboard.verticle.io"))
                                     .properties(sectionList)
