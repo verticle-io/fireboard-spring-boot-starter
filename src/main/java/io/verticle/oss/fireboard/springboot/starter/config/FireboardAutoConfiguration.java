@@ -11,6 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * Autoconfiguration for Fireboard Spring-Boot Starter
+ * NOTE: logger is configured separately (logback.xml)
+ *
+ *
  * @author Jens Saade
  */
 @Configuration

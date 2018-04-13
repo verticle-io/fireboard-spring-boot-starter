@@ -12,6 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import java.net.URL;
 
 /**
+ * Fireboard emitter for Spring Boot Actuator Health checks
  * @author Jens Saade
  */
 public class FireboardActuatorEmitter {
@@ -26,7 +27,6 @@ public class FireboardActuatorEmitter {
 
     @Scheduled(fixedRate = 60000)
     private void emit(){
-
 
         String ident = "application.test";
         String category = "spring.boot.health";
@@ -64,11 +64,6 @@ public class FireboardActuatorEmitter {
             //  so your own logic is not interrupted
             e.printStackTrace();
         }
-
-        System.out.println("health: " + getHealth().getStatus());
-        System.out.println("health code: " + getHealth().getStatus().getCode());
-        System.out.println("health desc: " + getHealth().getStatus().getDescription());
-
     }
 
 }

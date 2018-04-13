@@ -15,6 +15,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
+ * Fireboard appender for Logback (Spring Boot default)
+ * Configure logger/appender in logback.xml
+ * Default loglevel: warn
  * @author Jens Saade
  */
 public class FireboardAppender extends AppenderBase {
@@ -84,8 +87,7 @@ public class FireboardAppender extends AppenderBase {
                         .build());
 
                 String message = event.getMessage() != null ? event.getMessage() : "";
-                System.out.println("category: " + category);
-                System.out.println("ident: " + ident);
+
                 try {
                     FireboardClient.post(
                             new FireboardMessageBuilder()

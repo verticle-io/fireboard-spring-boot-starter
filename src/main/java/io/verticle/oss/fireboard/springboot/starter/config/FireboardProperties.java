@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * Configuration properties for Fireboard API endpoint connection
  * @author Jens Saade
  */
 @ConfigurationProperties
