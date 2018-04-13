@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.verticle.oss.fireboard.springboot.starter.config.FireboardAutoConfiguration

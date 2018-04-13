@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="FIREBOARD" class="io.verticle.oss.fireboard.springboot.starter.logger.logback.FireboardAppender">
+        <logLevel>warn</logLevel>
+        <ident>application.spring.boot.ident</ident>
+        <category>application.spring.boot.category</category>
+        <debug>false</debug>
+        <encoder>
+            <pattern>%d ${CONTEXT_NAME} %level %msg %logger{50}%n</pattern>
+        </encoder>
+    </appender>
+
+    <root>
+        <appender-ref ref="FIREBOARD" />
+    </root>
+</configuration>

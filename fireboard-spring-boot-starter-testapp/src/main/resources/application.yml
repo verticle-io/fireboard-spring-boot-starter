@@ -1,0 +1,4 @@
+fireboard.api:
+  auth.token: 1234567890
+  tenant: -1
+  bucket: -1
