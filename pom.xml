@@ -10,7 +10,7 @@
         <version>1.5.11.RELEASE</version>
     </parent>
 
-    <groupId>com.github.verticleio</groupId>
+    <groupId>com.github.verticle-io</groupId>
     <artifactId>fireboard-spring-boot-starter</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 
