@@ -45,9 +45,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.verticleio</groupId>
+            <groupId>com.github.verticle-io</groupId>
             <artifactId>fireboard-client-java</artifactId>
-            <version>1.0</version>
+            <version>1.0.1</version>
         </dependency>
 
         <dependency>
