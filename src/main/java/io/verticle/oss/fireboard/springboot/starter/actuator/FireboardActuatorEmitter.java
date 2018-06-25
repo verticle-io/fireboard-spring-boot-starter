@@ -5,8 +5,8 @@ import io.verticle.oss.fireboard.client.FireboardMessageBuilder;
 import io.verticle.oss.fireboard.client.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.actuate.endpoint.HealthEndpoint;
 import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.boot.actuate.health.Status;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -28,7 +28,7 @@ public class FireboardActuatorEmitter{
     private String appName;
 
     private Health getHealth(){
-        return healthEndpoint.invoke();
+        return healthEndpoint.health();
     }
 
     @Scheduled(fixedRate = 60000)
