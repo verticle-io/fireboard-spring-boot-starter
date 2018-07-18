@@ -45,7 +45,7 @@ public class FireboardAppender extends AppenderBase {
 
             // output the events as formatted by our layout
             try {
-                this.encoder.doEncode(event);
+                this.encoder.encode(event);
 
                 if (debug)
                     System.out.println("FIREBOARD-DEBUG sending msg> " + event.getMessage());
@@ -120,12 +120,13 @@ public class FireboardAppender extends AppenderBase {
             return;
         }
 
+        /*
         try {
             encoder.init(System.out);
         } catch (IOException e) {
             System.out.println("Error initializing encoder: " + e.getMessage());
         }
-
+        */
         super.start();
     }
 

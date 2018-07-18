@@ -4,9 +4,11 @@ import io.verticle.oss.fireboard.client.FireboardClient;
 import io.verticle.oss.fireboard.client.FireboardMessageBuilder;
 import io.verticle.oss.fireboard.client.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.actuate.endpoint.HealthEndpoint;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthEndpoint;
 import org.springframework.boot.actuate.health.Status;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.net.URL;
@@ -15,20 +17,24 @@ import java.net.URL;
  * Fireboard emitter for Spring Boot Actuator Health checks
  * @author Jens Saade
  */
-public class FireboardActuatorEmitter {
+public class FireboardActuatorEmitter{
 
     @Autowired
     HealthEndpoint healthEndpoint;
+    private ApplicationContext appContext;
 
+
+    @Value("${spring.application.name:application.unknown}")
+    private String appName;
 
     private Health getHealth(){
-        return healthEndpoint.invoke();
+        return healthEndpoint.health();
     }
 
     @Scheduled(fixedRate = 60000)
     private void emit(){
 
-        String ident = "application.test";
+        String ident = appName;
         String category = "spring.boot.health";
         String message = "" + getHealth().getStatus().getDescription();
         String link = "https://fireboard.verticle.io";
